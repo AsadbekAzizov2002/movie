@@ -9,7 +9,8 @@ const MovieDitail = lazy(() => import("../features/movies/pages/MovieDitail"))
 const Footer = lazy(() => import("../layout/components/Footer"))
 const Search = lazy(() => import("../layout/components/Search"))
 const Login = lazy(() => import("../layout/components/Login"))
-
+const Similar = lazy(() => import("../features/movies/pages/Similar"))
+const CastDetail = lazy (()=>import ("../features/cast/pages/CastDetail"))
 
 const AppRoutes = () => {
 	return useRoutes([
@@ -23,7 +24,17 @@ const AppRoutes = () => {
 				{ path: "search", element: <Search /> },
 				{ path: "login", element: <Login /> },
 				{ path: "footer", element: <Footer /> },
-				{ path: "movie/:id", element: <MovieDitail /> },
+				{path: "movie/:id", element: <MovieDitail />, children: [
+						
+						{
+							index:true, element: <Similar />
+						},
+						{
+							path:"cast", element:<CastDetail/>
+						}
+
+					]
+				},
 
 			]
 		},

@@ -4,16 +4,19 @@ import logo from "../../shared/assets/logo.svg";
 import Vector from "../../shared/assets/Vector.png"
 import Tablet from "../../shared/assets/tablet.png"
 import BookIcon from "../../shared/assets/bookIcon.svg"
-import SearchIcon from "../../shared/assets/searchIcon.svg"
+import { CiSearch } from "react-icons/ci";
+
+
+
 
 const Header = () => {
   return (
     <header className="Header container mx-auto px-4 py-3">
-      <div className="flex flex-col md:flex-row items-center justify-between">
+      <div className="flex flex-col md:flex-row items-center mb-2 justify-between">
         {/* Logo */}
         <NavLink to={"/"}>
           <img
-            className="w-[112px] mb-3 md:mb-0"
+            className="w-[112px] mb-3 md:mb-0 "
             src={logo}
             width={112}
             alt="logo"
@@ -23,15 +26,15 @@ const Header = () => {
         <div>
           <nav>
             <ul className="flex flex-col md:flex-row gap-4 md:gap-8 list-none font-medium items-center">
-              <li className=" w-[80px] h-12 active:bg-[#C61F1F] ">
-                <NavLink to={""} className=" active:bg-[#C61F1F]">
+              <li className=" w-[80px] h-12 text-[#A1A1A1] ">
+                <NavLink to={""} className="text-[#A1A1A1]">
                   <img className=" px-6" src={Vector} alt="" />
                   <span className=" mx-3 mt-4">
                     Home
                   </span>
                 </NavLink>
               </li>
-              <li className=" active:bg-[#C61F1F]  w-[80px] h-12">
+              <li className=" text-[#A1A1A1]  w-[80px] h-12">
                 <NavLink to={"movies"} >
                   <img className=" px-6" src={Tablet} alt="" />
                   <span className=" px-3">
@@ -39,17 +42,18 @@ const Header = () => {
                   </span>
                 </NavLink>
               </li>
-              <li className=" w-[80px] h-12 active:text-[#C61F1F]  ">
+              <li className=" w-[80px] h-12 text-[#A1A1A1]  ">
                 <NavLink to={"bookmark"}>
-                  <img className="active:bg-[#C61F1F]  px-6" src={BookIcon} alt="icon" />
+                  <img className="active:bg-[#C61F1F] text-[#A1A1A1] px-6" src={BookIcon} alt="icon" />
                   <span className=" px-">Bookmark</span>
                 </NavLink>
               </li>
 
               <li className="  active:text-[#C61F1F]  ">
                 <NavLink to={"search"}>
-                  <img className=" mx-2 w-6 h-6" src={SearchIcon} alt="" />
-                  <h2>Search </h2>
+                  {/* <img className=" mx-2 w-6 h-6 bg-red-600" src={SearchIcon} alt="" /> */}
+                  <CiSearch className=" w-8 h-7 active:text-red-300 text-[#A1A1A1]"/>
+                  <h2 className=" text-[#A1A1A1]">Search </h2>
                 </NavLink>
               </li>
             </ul>

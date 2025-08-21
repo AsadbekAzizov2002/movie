@@ -25,7 +25,7 @@ const Corusel = () => {
                 );
                 const data = await res.json();
                 // faqat rasmli va 6ta film olish
-                setMovies(data.results.filter((m: IMovie) => m.backdrop_path).slice(10, 36));
+                setMovies(data.results.filter((m: IMovie) => m.backdrop_path).slice(6,15));
             } catch (err) {
                 console.error("Filmlarni olishda xatolik:", err);
             }
@@ -35,23 +35,23 @@ const Corusel = () => {
     }, []);
 
     return (
-        <div className="w-full h-[500px] mx-auto">
+        <div className="w-full constainer h-[520px] mx-auto">
             <Swiper
                 modules={[Navigation, Pagination, Autoplay]}
                 spaceBetween={20}
                 slidesPerView={1}
                 navigation
                 pagination={{ clickable: true }}
-                autoplay={{ delay: 3000 }}
+                autoplay={{ delay: 2000 }}
                 loop={true}
-                className="rounded-2xl shadow-lg"
+                className="rounded-2xl shadow-lg bg-gradient-to-b"
             >
                 {movies.map((movie) => (
                     <SwiperSlide key={movie.id}>
                         <img
                             src={`https://image.tmdb.org/t/p/w1280${movie.backdrop_path}`}
                             alt={movie.title}
-                            className="w-full h-[500px] object-cover rounded-2xl"
+                            className="w-full h-[520px] object-cover rounded-2xl"
                         />
                     </SwiperSlide>
                 ))}
