@@ -1,5 +1,5 @@
 import { lazy, memo } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { useMovie } from '../service/useMovie';
 import Image from '../../../shared/components/image/Image';
 import { IMAGE_URL } from '../../../shared/const';
@@ -13,6 +13,8 @@ const MovieDitail = () => {
   const { data: similarData } = getMovieItems(Number(id), " similar ")
   const { data: creaditsData } = getMovieItems(Number(id), "credits")
   console.log(creaditsData);
+
+  const navigate =useNavigate()
 
   if (isLoading) {
     return <div className=' text-center text-4xl'>Loading...</div>
@@ -44,14 +46,14 @@ const MovieDitail = () => {
         </div>
         <div className=' flex flex-wrap gap-5'>
           {
-                  creaditsData?.cast?.map((cast: any) => {
-                    const image = cast.profile_path ? `${IMAGE_URL}${cast.profile_path}` :"https://www.google.com/url?sa=i&url=https%3A%2F%2Fcommons.wikimedia.org%2Fwiki%2FFile%3ADefault_pfp.svg&psig=AOvVaw3Fdp3rEt7npboQByYsFoVO&ust=1755812933968000&source=images&cd=vfe&opi=89978449&ved=0CBUQjRxqFwoTCIDVx-PKmo8DFQAAAAAdAAAAABAE"
-                    return   <div key={cast.id}>
-                      <img src={image} width={150} alt="" />
+            creaditsData?.cast?.slice(0, 16).map((cast: any) => {
+              const image = cast.profile_path ? `${IMAGE_URL}${cast.profile_path}` : "https://www.google.com/url?sa=i&url=https%3A%2F%2Fcommons.wikimedia.org%2Fwiki%2FFile%3ADefault_pfp.svg&psig=AOvVaw3Fdp3rEt7npboQByYsFoVO&ust=1755812933968000&source=images&cd=vfe&opi=89978449&ved=0CBUQjRxqFwoTCIDVx-PKmo8DFQAAAAAdAAAAABAE"
+              return <div key={cast.id}>
+                <img onClick={() => navigate(`/cast/${cast.id}`)} loading='lazy' src={image} width={150} alt="" />
                 <h1 className=' text-2xl text-red-200 w-[100px] line-clamp-2'> {cast.original_name}</h1>
                 <p className=' text-gray-50'>{cast.character}</p>
               </div>
-})
+            })
           }
         </div>
         <div>

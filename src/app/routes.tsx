@@ -35,6 +35,7 @@ const AppRoutes = () => {
 
 					]
 				},
+				{path:"cast/:id",element:<CastDetail/>}
 
 			]
 		},
