@@ -2,7 +2,8 @@ import { useMutation, useQuery } from "@tanstack/react-query"
 import { api } from "../../../shared/api"
 
 interface Iparams {
-    page?: number,
+    page?: string,
+    with_genres?: string
 }
 
 

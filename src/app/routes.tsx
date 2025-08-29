@@ -10,7 +10,7 @@ const Footer = lazy(() => import("../layout/components/Footer"))
 const Search = lazy(() => import("../layout/components/Search"))
 const Login = lazy(() => import("../layout/components/Login"))
 const Similar = lazy(() => import("../features/movies/pages/Similar"))
-const CastDetail = lazy (()=>import ("../features/cast/pages/CastDetail"))
+const CastDetail = lazy(() => import("../features/cast/pages/CastDetail"))
 
 const AppRoutes = () => {
 	return useRoutes([

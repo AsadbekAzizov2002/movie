@@ -7,6 +7,9 @@ import BookIcon from "../../shared/assets/bookIcon.svg"
 import { CiSearch } from "react-icons/ci";
 
 
+// import { Save } from 'lucide-react';
+
+
 
 
 const Header = () => {
@@ -45,6 +48,14 @@ const Header = () => {
               <li className=" w-[80px] h-12 text-[#A1A1A1]  ">
                 <NavLink to={"bookmark"}>
                   <img className="active:bg-[#C61F1F] text-[#A1A1A1] px-6" src={BookIcon} alt="icon" />
+                  
+                  
+                  {/* <Save /> */}
+                  
+                  
+                  
+                  
+                  
                   <span className=" px-">Bookmark</span>
                 </NavLink>
               </li>

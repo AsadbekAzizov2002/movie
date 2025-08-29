@@ -1,9 +1,15 @@
 import { lazy, memo } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useMovie } from '../service/useMovie';
-import Image from '../../../shared/components/image/Image';
+import ImageContainer from '../../../shared/components/image/Image';
 import { IMAGE_URL } from '../../../shared/const';
 const MovieView = lazy(() => import("../components/movie-view/MovieView"))
+import { Image } from 'antd';
+
+
+
+
+
 
 const MovieDitail = () => {
   const { id } = useParams()
@@ -25,7 +31,7 @@ const MovieDitail = () => {
       <div>
         <div className='  gap-20 md:flex'>
           <div>
-            <Image height={400} className=' h-[400px]' src={`${IMAGE_URL}${data.backdrop_path}`} />
+            <ImageContainer height={400} className=' h-[400px]' src={`${IMAGE_URL}${data.backdrop_path}`} />
           </div>
           <div className=' space-y-7'>
             <h2 className=' text-4xl text-red-500 '>{data?.title}</h2 >
@@ -40,7 +46,8 @@ const MovieDitail = () => {
         </div>
         <div className=' px-10 flex gap-3 mt-5 flex-wrap'>
           {images?.backdrops?.slice(0, 14).map((item: any, index: number) => (
-            <img key={index} src={`${IMAGE_URL}${item.file_path}`} width={150} alt="" />
+            // <img key={index} src={`${IMAGE_URL}${item.file_path}`} width={150} alt="" />
+            <Image key={index} src={`${IMAGE_URL}${item.file_path}`} width={150} alt="" />
           ))
           }
         </div>
